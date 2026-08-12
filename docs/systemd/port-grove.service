@@ -1,0 +1,15 @@
+[Unit]
+Description=Port Grove server port monitoring dashboard
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/port-grove
+EnvironmentFile=/etc/port-grove.env
+ExecStart=/usr/bin/python3 /opt/port-grove/server/monitor.py
+Restart=always
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

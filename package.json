@@ -1,0 +1,35 @@
+{
+  "name": "portgrove",
+  "private": true,
+  "version": "1.4.0",
+  "description": "A lightweight multi-server port discovery and project health dashboard.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "start": "python3 server/monitor.py",
+    "check": "npm run build && python3 -m unittest discover -s tests -v && python3 -m py_compile server/auth.py server/monitor.py agent/collector.py agent/agent.py scripts/manage-admin.py scripts/set-admin-password.py && bash -n scripts/install-agent.sh"
+  },
+  "keywords": [
+    "port-monitoring",
+    "server-dashboard",
+    "service-discovery",
+    "multi-server",
+    "monitoring-agent",
+    "systemd",
+    "react",
+    "vite"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "animal-island-ui": "1.2.2",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.5"
+  }
+}
